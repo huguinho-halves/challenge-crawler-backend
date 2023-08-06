@@ -36,13 +36,5 @@ export class MessageQueue {
         
     }
 
-    public static async consume( queueName : string, callbackFunction : any ){
-
-        const connection = await MessageQueue.getConnection();
-        const channel: Channel = await connection.createChannel();
-
-        await channel.assertQueue(queueName);
-
-        await channel.consume(queueName, callbackFunction );
-    }
+    
 }

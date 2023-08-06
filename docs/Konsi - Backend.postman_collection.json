@@ -73,6 +73,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create new crawler request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"docnumber\" : \"124.440.495-00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/crawler/search/document",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"crawler",
+						"search",
+						"document"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
