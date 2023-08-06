@@ -7,7 +7,7 @@ describe("Test suit for search service", () => {
   
   test("This test will produce a message in queue and should not throw a error", async () => {
 
-    const docnumber = "033.355.888-00";
+    const docnumber = "03335588800";
     const response = await SearchService.searchByCpf(docnumber);
 
     expect( response ).toBeUndefined();
@@ -15,7 +15,7 @@ describe("Test suit for search service", () => {
 
   test("Allow the same docnumber many times in message queue", async () => {
 
-    const docnumber = "033.355.888-00";
+    const docnumber = "03335588800";
 
     await SearchService.searchByCpf(docnumber);
     const response = await SearchService.searchByCpf(docnumber);

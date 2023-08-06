@@ -17,8 +17,10 @@ export const App = () =>{
     app.use(express.json());
 
     app.listen(process.env.PORT, () => {
-        console.log("server listen on ", process.env.PORT);
+
         expressListRoutes(app);
+        console.log("server listen on ", process.env.PORT);
+        
     });
 
 

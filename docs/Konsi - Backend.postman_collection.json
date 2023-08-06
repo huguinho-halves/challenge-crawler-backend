@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "2d232672-ec3c-412b-97ba-349438695ce1",
+		"name": "Konsi - Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13175209"
+	},
+	"item": [
+		{
+			"name": "Get Application Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/ready",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ready"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search By Docnumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/search/document/number/033.355.888-00",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"search",
+						"document",
+						"number",
+						"033.355.888-00"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new record on elastic search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"docnumber\" : \"067.510.675-34\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/crawler/document",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"crawler",
+						"document"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

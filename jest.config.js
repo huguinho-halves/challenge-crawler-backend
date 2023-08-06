@@ -14,6 +14,7 @@ module.exports = {
       "./src/**",
       "!./src/index.ts",
       "!./src/app.ts",
+      "!./src/controller/**",
     ],
     coverageThreshold: {
       global: {

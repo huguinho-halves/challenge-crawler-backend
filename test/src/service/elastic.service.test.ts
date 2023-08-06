@@ -21,17 +21,10 @@ describe("Test suit for search service", () => {
     
     const docnumber = "033.355.888-00";
     
-    const response = await ElasticService.searchByParameter("docnumber", docnumber);
+    const response = await ElasticService.searchByParameter(docnumber);
     expect( response ).not.toBeNull();
   });
 
-  test("Should be return resultset after search by wildcard", async () => {
-    
-    const docnumber = "033.355.888-00";
-    
-    const response = await ElasticService.searchByWildcard("docnumber", docnumber);
-    expect( response ).not.toBeNull();
-  });
 
 
 });

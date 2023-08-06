@@ -36,49 +36,30 @@ export class ElasticService {
 
     }
 
-    public static async searchByParameter( parameterName : string, parameterValue : string ){
+    public static async searchByParameter( parameterValue : string ){
 
         const elasticClient = ElasticService.getElasticConnection();
 
-        return new Promise( (resolve, reject) => {
+        return new Promise( async (resolve, reject) => {
 
-            elasticClient.search({
+            const response = await elasticClient.search({
+                index : "benefits",
                 body: {
+                    track_total_hits: true,
                     query: {
-                        match: { parameterName : parameterValue }
+                        match: { "docnumber" : parameterValue }
                     }
                 }
             })
-            .then((response: any) => {
-                resolve( response );
-            }).catch((err: any) => {
-                reject(err);
-            })
+
+            let list = [];
+            if( response && response.hits && response.hits.hits ){
+                list = response.hits.hits;
+            }
+
+            resolve(list);
 
         });
-    }
-
-    public static async searchByWildcard( parameterName : string, parameterValue : string ){
-
-        const elasticClient = ElasticService.getElasticConnection();
-
-        return new Promise( (resolve, reject) => {
-
-            elasticClient.search({
-                body: {
-                    query: {
-                        wildcard: { parameterName : parameterValue }
-                    }
-                }
-            })
-            .then((response: any) => {
-                resolve( response );
-            }).catch((err: any) => {
-                reject(err);
-            })
-
-        });
-
     }
     
 }
