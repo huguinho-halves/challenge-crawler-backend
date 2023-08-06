@@ -10,7 +10,11 @@ module.exports = {
       'dotenv/config'
     ],
     collectCoverage: true,
-    collectCoverageFrom: ["./src/**"],
+    collectCoverageFrom: [
+      "./src/**",
+      "!./src/index.ts",
+      "!./src/app.ts",
+    ],
     coverageThreshold: {
       global: {
         lines: 30
