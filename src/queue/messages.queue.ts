@@ -26,7 +26,12 @@ export class MessageQueue {
         await channel.assertQueue(queueName);
 
         try{
+
+            console.log("Enviando o pacote: ", message, " para a queue ", queueName );
             channel.sendToQueue(queueName, Buffer.from(JSON.stringify(message)) )
+
+            console.log("pacote enviado com sucesso");
+            console.log("");
         }
         catch(e){
             console.log("Error from parse JSON when send data to queue");

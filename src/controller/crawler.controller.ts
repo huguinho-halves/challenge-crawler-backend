@@ -38,10 +38,15 @@ export class CrawlerController {
 
         let body = req.body;
 
+        console.log("Request recebida para salvar dados no elastic search");
+        console.log("payload", body );
+
         try{
 
             if( body ){
                 await ElasticService.saveRecord("benefits", body);
+
+                console.log("Dados armazenados com sucesso");
                 res.json({ "success" : true });
             }
             else{
