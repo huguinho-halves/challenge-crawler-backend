@@ -25,9 +25,10 @@ export class ElasticService {
             elasticClient.index({
                 index: indexName,
                 body: body
-            }).then(() => {
-                resolve(null);
+            }).then((response: any) => {
+                resolve(response);
             }).catch((err: any) => {
+                console.log(err);
                 reject(err);
             })
 

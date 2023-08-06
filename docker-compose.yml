@@ -1,28 +1,22 @@
-version: 2
+version: "2"
 
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq_management
-    
-    ports: 
-    - 25672:25672 # (erlang) communication between the nodes and CLI tool
-    - 15672:15672 # communication with the web management API 
-    
-    volumes:
-    # data persistence
-    - /docker_conf/rabbitmq/data/:/var/lib/rabbitmq/
-    # data mapping -> host: container
-    # queues and messages data of the container will be stored on the host
+  
+  rabbitmq3:
+    image: rabbitmq:3.8-management-alpine
+    container_name: "rabbitmq"
     environment:
-    - RABBITMQ_DEFAULT_USER = admin
-    - RABBITMQ_DEFAULT_PASS = passw123
-
-    restart: always
+        - RABBITMQ_DEFAULT_USER=admin
+        - RABBITMQ_DEFAULT_PASS=passw123
+    ports:
+        # AMQP protocol port
+        - '5672:5672'
+        # HTTP management UI
+        - '15672:15672'
 
   elasticsearch:
     image: elasticsearch:7.16.1
-    container_name: es
+    container_name: elastic_search
     environment:
       discovery.type: single-node
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
@@ -34,10 +28,3 @@ services:
       interval: 10s
       timeout: 10s
       retries: 3
-    networks:
-      - elastic
-
-volumes:
-    logs-folder:
-        name: ${log_rabbitmq_management}
-        driver: local

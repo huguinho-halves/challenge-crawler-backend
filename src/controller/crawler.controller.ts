@@ -41,7 +41,7 @@ export class CrawlerController {
         try{
 
             if( body ){
-                await ElasticService.saveRecord("Benefits", body);
+                await ElasticService.saveRecord("benefits", body);
                 res.json({ "success" : true });
             }
             else{

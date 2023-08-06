@@ -5,6 +5,10 @@ module.exports = {
         '^.+\\.ts?$': 'ts-jest',
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
+    testTimeout: 15000,
+    setupFiles: [
+      'dotenv/config'
+    ],
     collectCoverage: true,
     collectCoverageFrom: ["./src/**"],
     coverageThreshold: {

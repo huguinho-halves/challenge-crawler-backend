@@ -11,7 +11,7 @@ export class MessageQueue {
         const host = process.env.RABBIT_HOST;
         const port = process.env.RABBIT_PORT;
 
-        const url = `amqp://${username}:${password}@${host}:${port}`
+        const url = `amqp://${username}:${password}@${host}:${port}`;
 
         const connection: Connection = await client.connect(url);
 
