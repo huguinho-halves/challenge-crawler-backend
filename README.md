@@ -15,6 +15,15 @@ Provisionar o backend que será responsável por:
 
 ![Arquitetura da Aplicação](docs/challenge_crawler_backend.jpg)
 
+### Demais artefatos
+
+Frontend
+https://github.com/huguinho-halves/challenge-crawler-frontend
+
+Crawler
+https://github.com/huguinho-halves/challenge-crawler
+
+
 ## Coleção do Postman
 
 Todas as request's dessa aplicação, estão dentro de uma coleção do postman dentro da pasta docs/
